@@ -1,0 +1,9 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="KundgolServiceApplication" type="Application" factoryName="Application">
+    <module name="kundgol-project" />
+    <option name="PROGRAM_PARAMETERS" value="com.kbl.kundolservice.KundgolServiceApplication" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

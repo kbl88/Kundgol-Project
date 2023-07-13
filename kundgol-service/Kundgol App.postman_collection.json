@@ -1,0 +1,162 @@
+{
+	"info": {
+		"_postman_id": "7a8f5e98-6946-4774-ab32-46bb10c965b6",
+		"name": "Kundgol App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get by Name",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"placeCode\":\"PL-02\",\r\n    \"wardCode\":\"WD-03\",\r\n    \"personName\":\"XYZ\",\r\n    \"aadhaarNo\":\"5678123412345678\",\r\n    \"contactNo\":\"9012345678\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/person?name=ABC",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"person"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "ABC"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get by Kannada name",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"placeCode\":\"PL-02\",\r\n    \"wardCode\":\"WD-03\",\r\n    \"personName\":\"XYZ\",\r\n    \"aadhaarNo\":\"5678123412345678\",\r\n    \"contactNo\":\"9012345678\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/person?name=ಎಬಿಸಿ",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"person"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "ಎಬಿಸಿ"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "save Person",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"placeCode\":\"PL-02\",\r\n    \"wardCode\":\"WD-03\",\r\n    \"personName\":\"XYZ\",\r\n    \"aadhaarNo\":\"5678123412345678\",\r\n    \"contactNo\":\"9012345678\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/person",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"person"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get by Aadharno",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"placeCode\":\"PL-02\",\r\n    \"wardCode\":\"WD-03\",\r\n    \"personName\":\"XYZ\",\r\n    \"aadhaarNo\":\"5678123412345678\",\r\n    \"contactNo\":\"9012345678\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/person/1234567812345678",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"person",
+						"1234567812345678"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Places",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/places",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"places"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
