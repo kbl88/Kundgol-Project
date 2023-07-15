@@ -1,4 +1,4 @@
-/*package com.kbl.kundgolservice.entity;
+package com.kbl.kundgolservice.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -16,11 +16,16 @@ public class PublicService {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long serviceId;
+    private String serviceType;//I(individual)/G(General)
+    private String personName;
+    private String personNameK;
     private String placeCode;
     private String wardCode;
-    private String personName;
     @Lob
     private byte[] imageData;
+    private String fileName;
+    private String fileType;
+    private String messageTitle;
     private String message;
     private Long createdBy;
     private LocalDate createdDate;
@@ -28,4 +33,3 @@ public class PublicService {
     private LocalDate updatedDate;
 
 }
-*/
