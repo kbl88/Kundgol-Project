@@ -157,6 +157,176 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Get Categories",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/categories",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"categories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DownLoad ProductImage",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/download/la.jpg",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"download",
+						"la.jpg"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Upload ProductImage",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "productImage",
+							"type": "file",
+							"src": "/C:/Users/kblatha/Desktop/Website Design/la.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8082/upload",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save Service",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"personId\": 1,\r\n    \"placeCode\": \"PL-01\",\r\n    \"wardCode\": \"WD-01\",\r\n    \"personName\": \"ABC\",\r\n    \"personNameK\": \"ಎಬಿಸಿ\",\r\n    \"aadhaarNo\": \"1234567812345678\",\r\n    \"contactNo\": \"1234567890\",\r\n    \"createdBy\": 1,\r\n    \"createdDate\": \"2023-07-16\",\r\n    \"serviceType\":\"I\",\r\n    \"messageTitle\":\"ಸಿಮೆಂಟ್ ಕಾಂಕ್ರೀಟ್ ರಸ್ತೆ ಹಾಕುವುದು\",\r\n    \"message\":\"ಸಿಮೆಂಟ್ ಕಾಂಕ್ರೀಟ್ ರಸ್ತೆ ಹಾಕುವುದು\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/service",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"service"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "File upload",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/C:/Users/kblatha/Desktop/Website Design/la.jpg"
+						},
+						{
+							"key": "id",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8082/uploadfile",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"uploadfile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Download by serviceId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/download/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"download",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get service by person name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/service/ಎಬಿಸಿ",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"service",
+						"ಎಬಿಸಿ"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
