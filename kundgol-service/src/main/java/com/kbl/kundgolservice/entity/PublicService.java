@@ -16,11 +16,13 @@ public class PublicService {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long serviceId;
+    private String categoryCode;
     private String serviceType;//I(individual)/G(General)
     private String personName;
     private String personNameK;
     private String placeCode;
     private String wardCode;
+    private String year;
     @Lob
     private byte[] imageData;
     private String fileName;
