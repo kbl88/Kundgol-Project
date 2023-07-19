@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -33,9 +35,9 @@ public class PublicServiceController {
     public void savePublicService(@RequestParam("image") MultipartFile file,@RequestParam("id") Long serviceId) throws IOException{
        service.uploadImage(file,serviceId);
     }
-    @GetMapping("/service/{name}")
-    public ResponseEntity<Optional<PublicService>> fetchPublicServiceByName(@PathVariable String name){
-        Optional<PublicService> publicService = service.fetchPublicServiceByName(name);
+    @GetMapping("/service/{personName}")
+    public ResponseEntity<Optional<PublicService>> fetchPublicServiceByName(@PathVariable String personName){
+        Optional<PublicService> publicService = service.fetchPublicServiceByName(personName);
         if (publicService.isPresent())
             return new ResponseEntity<>(publicService, HttpStatus.FOUND);
         else return new ResponseEntity<>(publicService, HttpStatus.NOT_FOUND);
@@ -45,7 +47,22 @@ public class PublicServiceController {
         byte[] image = service.downloadImage(id);
         return ResponseEntity.status(HttpStatus.OK).contentType(MediaType.valueOf("image/jpg")).body(image);
     }*/
+    @GetMapping("/report/{personName}")
+    public List<PublicService> fetchPublicServiceReportByPersonName(@PathVariable String personName){
+        List<PublicService> publicServiceList = service.getPersonWiseData(personName);
+        return publicServiceList;
+    }
+    /*@GetMapping("/report/{wardCode}")
+    public List<PublicService> fetchPublicServiceReportByWardCode(@PathVariable String wardCode){
+        List<PublicService> publicServiceList = service.fetchByWardCodeAndServiceType(wardCode,"G");
+        return publicServiceList;
+    }*/
 
+    @GetMapping("/report/{placeCode}/{wardCode}")
+    public List<PublicService> fetchPublicServiceReportByPlaceCode(@PathVariable String placeCode,@PathVariable String wardCode){
+        List<PublicService> publicServiceList = service.fetchByPlaceCodeAndWardCodeAndServiceType(placeCode,wardCode,"G");
+        return publicServiceList;
+    }
 }
 
 

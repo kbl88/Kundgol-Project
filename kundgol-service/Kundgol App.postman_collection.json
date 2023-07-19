@@ -327,6 +327,47 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Report by PersonName",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/report/Vishwa Basavaraj Tadsur",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"report",
+						"Vishwa Basavaraj Tadsur"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Report by PlaceCode and WardCode",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/report/PL-01/WD-01",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"report",
+						"PL-01",
+						"WD-01"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
