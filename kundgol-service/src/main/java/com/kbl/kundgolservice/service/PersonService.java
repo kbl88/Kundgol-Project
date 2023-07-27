@@ -18,10 +18,9 @@ public class PersonService {
     private PersonRepository repository;
 
     public Person savePerson(Person person){
-        person.setCreatedBy(1L);
-        person.setCreatedDate(LocalDate.now());
-        Person savedPerson = repository.save(person);
-        return savedPerson;
+       // person.setCreatedBy(1L);
+       // person.setCreatedDate(LocalDate.now());
+        return repository.save(person);
     }
 
     public Person fetchPersonByAadharno(String aadharno){
@@ -30,12 +29,12 @@ public class PersonService {
     }
 
     public Optional<Person> fetchPersonByName(String name){
-        Optional<Person> p = Optional.ofNullable(repository.findByPersonName(name));
-        if(p.isPresent())
+        return Optional.ofNullable(repository.findByPersonName(name));
+       /* if(p.isPresent())
             return p;
         else{
             p =  Optional.ofNullable(repository.findByPersonNameK(name));
                 return p;
-        }
+        }*/
     }
 }

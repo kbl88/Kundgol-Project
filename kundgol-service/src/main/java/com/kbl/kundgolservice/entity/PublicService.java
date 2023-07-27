@@ -1,14 +1,12 @@
 package com.kbl.kundgolservice.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDate;
-
 @Entity
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name="public_service")
@@ -16,6 +14,7 @@ public class PublicService {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long serviceId;
+    private Long personId;
     private String categoryCode;
     private String serviceType;//I(individual)/G(General)
     private String personName;
@@ -33,5 +32,4 @@ public class PublicService {
     private LocalDate createdDate;
     private Long updatedBy;
     private LocalDate updatedDate;
-
 }

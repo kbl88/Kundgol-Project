@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface WardRepository extends JpaRepository<Ward,Long> {
+    Ward findByPlaceCodeAndWardCode(String placeCode,String wardCode);
 }

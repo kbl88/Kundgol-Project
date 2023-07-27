@@ -8,4 +8,5 @@ import java.util.List;
 @Repository
 public interface PlaceRepository extends JpaRepository<Place,Long> {
     List<Place> findAll();
+    Place findByPlaceCode(String code);
 }
