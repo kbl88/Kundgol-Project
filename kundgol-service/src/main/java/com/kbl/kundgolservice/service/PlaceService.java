@@ -19,4 +19,8 @@ public class PlaceService {
         List<Place> placeList = repository.findAll();
         return placeList;
     }
+
+    public Place savePlace(Place place){
+        return repository.save(place);
+    }
 }

@@ -1,4 +1,4 @@
-/*
+
 package com.kbl.kundgolservice.dto;
 
 import lombok.AllArgsConstructor;
@@ -6,7 +6,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
 
 @Getter
 @Setter
@@ -14,9 +13,9 @@ import java.util.List;
 @NoArgsConstructor
 public class ResponseDto {
     private PersonDto personDto;
-    private List<WardDto> wardDtoList;
-    private List<PlaceDto> placeDtoList;
-    private List<TalukDto> talukDtoList;
+    private WardDto wardDtoList;
+    private PlaceDto placeDtoList;
+    private TalukDto talukDtoList;
 }
 
-*/
+
