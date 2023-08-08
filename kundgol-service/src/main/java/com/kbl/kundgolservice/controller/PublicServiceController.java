@@ -3,6 +3,7 @@ package com.kbl.kundgolservice.controller;
 import com.kbl.kundgolservice.dto.PersonDto;
 import com.kbl.kundgolservice.entity.Person;
 import com.kbl.kundgolservice.entity.PublicService;
+import com.kbl.kundgolservice.entity.ServiceView;
 import com.kbl.kundgolservice.service.PublicServiceService;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -35,10 +36,10 @@ public class PublicServiceController {
     }
 
     @GetMapping("/service")
-    public ResponseEntity<List<PublicService>> fetchAllService(){
-        List<PublicService> publicServices = service.fetchAllService();
-        if (publicServices.size()>0){
-            return new ResponseEntity<>(publicServices,HttpStatus.FOUND);
+    public ResponseEntity<List<ServiceView>> fetchAllService(){
+        List<ServiceView> serviceViewList = service.fetchAllService();
+        if (serviceViewList.size()>0){
+            return new ResponseEntity<>(serviceViewList,HttpStatus.FOUND);
         }
         return new ResponseEntity<>(null,HttpStatus.NOT_FOUND);
     }

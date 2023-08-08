@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -26,4 +27,8 @@ public class Ward {
     private LocalDate createdDate;
     private Integer updatedBy;
     private LocalDate updatedDate;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumns({@JoinColumn(name = "placeCode", referencedColumnName = "placeCode"),
+            @JoinColumn(name = "wardCode", referencedColumnName = "wardCode")})
+    private List<Person> personList;
 }

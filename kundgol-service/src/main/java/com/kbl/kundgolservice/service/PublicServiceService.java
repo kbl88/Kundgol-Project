@@ -1,13 +1,7 @@
 package com.kbl.kundgolservice.service;
 
-import com.kbl.kundgolservice.entity.Person;
-import com.kbl.kundgolservice.entity.Place;
-import com.kbl.kundgolservice.entity.PublicService;
-import com.kbl.kundgolservice.entity.Ward;
-import com.kbl.kundgolservice.repository.PersonRepository;
-import com.kbl.kundgolservice.repository.PlaceRepository;
-import com.kbl.kundgolservice.repository.PublicServiceRepository;
-import com.kbl.kundgolservice.repository.WardRepository;
+import com.kbl.kundgolservice.entity.*;
+import com.kbl.kundgolservice.repository.*;
 import com.kbl.kundgolservice.util.ImageUtil;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -24,12 +18,9 @@ import java.util.*;
 public class PublicServiceService {
     @Autowired
     private PublicServiceRepository repository;
+
     @Autowired
-    private PlaceRepository placeRepository;
-    @Autowired
-    private WardRepository wardRepository;
-    @Autowired
-    private PersonRepository personRepository;
+    private ReportRepository reportRepository;
     public PublicService savePublicService(PublicService publicService){
         return repository.save(publicService);
     }
@@ -48,8 +39,8 @@ public class PublicServiceService {
         return ImageUtil.decompressImage(imageData.get().getImageData());
     }
 
-    public List<PublicService> fetchAllService(){
-        return repository.findAll();
+    public List<ServiceView> fetchAllService(){
+        return reportRepository.findAll();
     }
 
 

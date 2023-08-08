@@ -15,7 +15,7 @@ public class CategoryDto {
     private int categoryId;
     private String categoryName;
     private String categoryNameK;
-    private List<ServiceDto> serviceDtoList;
+    private List<ServiceDto> services;
 }
 
 

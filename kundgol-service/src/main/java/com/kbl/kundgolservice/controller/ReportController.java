@@ -19,9 +19,8 @@ public class ReportController {
     private ReportService reportService;
 
     @GetMapping("/report/person")
-    public ResponseEntity<ResponseDto> fetchReportByPerson(@RequestParam String name){
-        ResponseDto response = reportService.fetchReportByName(name);
-
+    public ResponseEntity<ResponseDto> fetchReportByPerson(@RequestParam Long personId){
+        ResponseDto response = reportService.fetchReportByPerson( personId);
         if (response !=null)
             return  new ResponseEntity<>(response,HttpStatus.FOUND);
         return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);

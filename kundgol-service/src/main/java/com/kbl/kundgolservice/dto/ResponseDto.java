@@ -12,10 +12,10 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ResponseDto {
-    private PersonDto personDto;
-    private WardDto wardDtoList;
-    private PlaceDto placeDtoList;
-    private TalukDto talukDtoList;
+    private PersonDto person;
+    private WardDto ward;
+    private PlaceDto place;
+    private TalukDto taluk;
 }
 
 

@@ -14,7 +14,7 @@ import java.util.List;
 public class TalukDto {
 
     private String name;
-    private List<CategoryDto> categoryDtoList;
+    private List<CategoryDto> categories;
 }
 
 

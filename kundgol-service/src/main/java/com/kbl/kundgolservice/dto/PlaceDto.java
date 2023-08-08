@@ -16,7 +16,7 @@ public class PlaceDto {
     private String placeCode;
     private String placeName;
     private String placeNameK;
-    private List<CategoryDto> categoryDtoList;
+    private List<CategoryDto> categories;
 }
 
 

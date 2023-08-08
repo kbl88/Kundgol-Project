@@ -18,6 +18,6 @@ public class PersonDto {
     private String address;
     private String aadhaarNo;
     private String contactNo;
-    private List<ServiceDto> serviceDtoList;
+    private List<ServiceDto> services;
 
 }

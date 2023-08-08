@@ -28,8 +28,8 @@ public class ReportService {
     private ReportRepository reportRepository;
 
 
-    public ResponseDto fetchReportByName(String name){
-        Optional<Person> person = Optional.ofNullable(personRepository.findByPersonName(name));
+    public ResponseDto fetchReportByPerson(Long personId){
+        Optional<Person> person = personRepository.findById(personId);
         List<ServiceView> service= new ArrayList<>();
         if (person.isPresent()){
             service = reportRepository.findByPersonIdAndPlace(person.get().getPersonId(),person.get().getPlaceCode(), person.get().getWardCode());
@@ -61,14 +61,14 @@ public class ReportService {
                 .filter(s -> s.getPersonId() != null).collect(Collectors.toList());
         if(personServiceList.size()>0){
             PersonDto personDto = buildPersonDto(personServiceList);
-            responseDto.setPersonDto(personDto);
+            responseDto.setPerson(personDto);
         }
         List<ServiceView> wardServiceList = serviceViewList.stream()
                 .filter(s-> s.getWardCode() != null && !s.getWardCode().equals("WD-ALL") && s.getPersonId()==null)
                 .collect(Collectors.toList());
         if(wardServiceList.size()>0){
             WardDto wardDto = buildWardDto(wardServiceList);
-            responseDto.setWardDtoList(wardDto);
+            responseDto.setWard(wardDto);
         }
 
         List<ServiceView> placeServiceList = serviceViewList.stream()
@@ -76,7 +76,7 @@ public class ReportService {
                 .collect(Collectors.toList());
         if(placeServiceList.size()>0){
             PlaceDto placeDto = buildPlaceDto(placeServiceList);
-            responseDto.setPlaceDtoList(placeDto);
+            responseDto.setPlace(placeDto);
         }
 
         List<ServiceView> talukServiceList = serviceViewList.stream()
@@ -84,7 +84,7 @@ public class ReportService {
                 .collect(Collectors.toList());
         if(placeServiceList.size()>0){
             TalukDto talukDto = buildTalukDto(talukServiceList);
-            responseDto.setTalukDtoList(talukDto);
+            responseDto.setTaluk(talukDto);
         }
 
 
@@ -101,7 +101,7 @@ public class ReportService {
         person.setContactNo(personService.getContactNo());
         person.setAddress(personService.getAddress());
         List<ServiceDto> serviceList = buildServiceDto(personServiceList);
-        person.setServiceDtoList(serviceList);
+        person.setServices(serviceList);
         return person;
     }
     public WardDto buildWardDto(List<ServiceView> wardServiceList){
@@ -111,7 +111,7 @@ public class ReportService {
         wardDto.setWardName(serviceView.getWardName());
         wardDto.setWardNameK(serviceView.getWardNamek());
         List<ServiceDto> serviceList = buildServiceDto(wardServiceList);
-        wardDto.setServiceDtoList(serviceList);
+        wardDto.setServices(serviceList);
         return wardDto;
     }
 
@@ -122,14 +122,14 @@ public class ReportService {
         placeDto.setPlaceName(serviceView.getPlaceName());
         placeDto.setPlaceNameK(serviceView.getPlaceNamek());
         List<CategoryDto> categoryDtoList = buildCategoryDto(placeServiceList);
-        placeDto.setCategoryDtoList(categoryDtoList);
+        placeDto.setCategories(categoryDtoList);
         return placeDto;
     }
     public TalukDto buildTalukDto(List<ServiceView> talukServiceList){
         TalukDto talukDto = new TalukDto();
         talukDto.setName("ತಾಲೂಕಿನ ಅಭಿವೃದ್ಧಿ:");
         List<CategoryDto> categoryDtoList = buildCategoryDto(talukServiceList);
-        talukDto.setCategoryDtoList(categoryDtoList);
+        talukDto.setCategories(categoryDtoList);
         return talukDto;
     }
 
@@ -144,7 +144,7 @@ public class ReportService {
             categoryDto.setCategoryName(serviceViewCat.getCategoryName());
             categoryDto.setCategoryNameK(serviceViewCat.getCategoryNamek());
             List<ServiceDto> serviceDtoList = buildServiceDto(v);
-            categoryDto.setServiceDtoList(serviceDtoList);
+            categoryDto.setServices(serviceDtoList);
             categoryDtoList.add(categoryDto);
         });
 

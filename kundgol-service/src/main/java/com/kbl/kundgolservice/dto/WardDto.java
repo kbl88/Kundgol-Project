@@ -6,7 +6,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.ArrayList;
 import java.util.List;
 @Getter
 @Setter
@@ -17,7 +16,7 @@ public class WardDto {
     private String wardCode;
     private String wardName;
     private String wardNameK;
-    private List<ServiceDto> serviceDtoList;
+    private List<ServiceDto> services;
 }
 
 

@@ -23,7 +23,7 @@ public class PersonController {
         Person savedPerson = personService.savePerson(person);
         return new ResponseEntity<>(savedPerson, HttpStatus.OK);
     }
-    @GetMapping("/persons")
+    @GetMapping("/people")
     public ResponseEntity<List<Person>> fetchAllPerson(){
         List<Person> personList = personService.fetchAllPerson();
         if(personList.size()>0){
