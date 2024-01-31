@@ -1,6 +1,7 @@
 package com.kbl.kundgolservice.controller;
 
 import com.kbl.kundgolservice.entity.Person;
+import com.kbl.kundgolservice.exception.ResourceAlreadyExistExcepton;
 import com.kbl.kundgolservice.service.PersonService;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -19,12 +20,12 @@ public class PersonController {
     private PersonService personService;
 
     @PostMapping("/person")
-    public ResponseEntity<Person> savePerson(@RequestBody Person person) {
+    public ResponseEntity<Person> savePerson(@RequestBody Person person) throws ResourceAlreadyExistExcepton {
         Person savedPerson = personService.savePerson(person);
         return new ResponseEntity<>(savedPerson, HttpStatus.OK);
     }
     @GetMapping("/people")
-    public ResponseEntity<List<Person>> fetchAllPerson(){
+    public ResponseEntity<List<Person>> fetchAllPerson() throws ResourceAlreadyExistExcepton{
         List<Person> personList = personService.fetchAllPerson();
         if(personList.size()>0){
             return new ResponseEntity<>(personList,HttpStatus.FOUND);
@@ -32,14 +33,14 @@ public class PersonController {
         return new ResponseEntity<>(null,HttpStatus.NOT_FOUND);
     }
     @GetMapping("/person/{aadharno}")
-    public ResponseEntity<Person> fetchPersonByAadharno(@PathVariable String aadharno) {
+    public ResponseEntity<Person> fetchPersonByAadharno(@PathVariable String aadharno) throws ResourceAlreadyExistExcepton {
         Person person = personService.fetchPersonByAadharno(aadharno);
         if (null != person)
             return new ResponseEntity<>(person, HttpStatus.FOUND);
         else return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }
     @GetMapping("/person")
-    public ResponseEntity<Optional<Person>> fetchPersonByName(@RequestParam String name) {
+    public ResponseEntity<Optional<Person>> fetchPersonByName(@RequestParam String name) throws ResourceAlreadyExistExcepton{
         Optional<Person> person = personService.fetchPersonByName(name);
         if (person.isPresent())
             return new ResponseEntity<>(person, HttpStatus.FOUND);

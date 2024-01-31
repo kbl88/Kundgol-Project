@@ -22,9 +22,9 @@ public class Place {
     private String placeCode;
     private String placeName;
     private String placeNameK;
-    private Integer createdBy;
+    private Long createdBy;
     private LocalDate createdDate;
-    private Integer updatedBy;
+    private Long updatedBy;
     private LocalDate updatedDate;
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "placeCode", referencedColumnName = "placeCode")

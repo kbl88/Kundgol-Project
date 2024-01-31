@@ -23,9 +23,9 @@ public class Ward {
     private String placeCode;
     private String wardName;
     private String wardNameK;
-    private Integer createdBy;
+    private Long createdBy;
     private LocalDate createdDate;
-    private Integer updatedBy;
+    private Long updatedBy;
     private LocalDate updatedDate;
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumns({@JoinColumn(name = "placeCode", referencedColumnName = "placeCode"),

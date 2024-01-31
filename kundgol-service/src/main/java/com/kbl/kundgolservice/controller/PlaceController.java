@@ -1,6 +1,7 @@
 package com.kbl.kundgolservice.controller;
 
 import com.kbl.kundgolservice.entity.Place;
+import com.kbl.kundgolservice.exception.ResourceAlreadyExistExcepton;
 import com.kbl.kundgolservice.service.PlaceService;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -27,7 +28,7 @@ public class PlaceController {
     }
 
     @PostMapping("/Place")
-    public ResponseEntity<Place> savePlace(@RequestBody Place place){
+    public ResponseEntity<Place> savePlace(@RequestBody Place place) throws ResourceAlreadyExistExcepton {
         Place savedPlace = service.savePlace(place);
         if(savedPlace.getPlaceId() !=null){
             return new ResponseEntity<>(savedPlace,HttpStatus.FOUND);

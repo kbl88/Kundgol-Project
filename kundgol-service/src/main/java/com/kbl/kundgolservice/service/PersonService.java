@@ -1,6 +1,7 @@
 package com.kbl.kundgolservice.service;
 
 import com.kbl.kundgolservice.entity.Person;
+import com.kbl.kundgolservice.exception.ResourceAlreadyExistExcepton;
 import com.kbl.kundgolservice.repository.PersonRepository;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -18,10 +19,19 @@ public class PersonService {
     @Autowired
     private PersonRepository repository;
 
-    public Person savePerson(Person person){
-       // person.setCreatedBy(1L);
-       // person.setCreatedDate(LocalDate.now());
-        return repository.save(person);
+    public Person savePerson(Person person) throws ResourceAlreadyExistExcepton {
+        Person existPerson = repository.findByAadhaarNo(person.getAadhaarNo());
+        if(null == existPerson){
+            person.setCreatedBy(1L);
+            person.setCreatedDate(LocalDate.now());
+            return repository.save(person);
+        }
+        else {
+            throw new ResourceAlreadyExistExcepton("Person already exist with this AadharNo :: " + person.getAadhaarNo());
+        }
+       /* person.setCreatedBy(1L);
+        person.setCreatedDate(LocalDate.now());
+        return repository.save(person);*/
     }
 
     public Person fetchPersonByAadharno(String aadharno){

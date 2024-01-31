@@ -1,6 +1,7 @@
 package com.kbl.kundgolservice.controller;
 
 import com.kbl.kundgolservice.entity.Ward;
+import com.kbl.kundgolservice.exception.ResourceAlreadyExistExcepton;
 import com.kbl.kundgolservice.service.WardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,7 +20,7 @@ public class WardController{
     @Autowired
     private WardService wardService;
     @PostMapping("/ward")
-    public ResponseEntity<Ward> saveWard(@RequestBody Ward ward){
+    public ResponseEntity<Ward> saveWard(@RequestBody Ward ward) throws ResourceAlreadyExistExcepton {
         Ward savedWard = wardService.saveWard(ward);
         if (savedWard.getWardId() !=null){
             return new ResponseEntity<>(savedWard, HttpStatus.FOUND);
