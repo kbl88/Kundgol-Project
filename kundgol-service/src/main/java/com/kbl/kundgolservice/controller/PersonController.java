@@ -2,6 +2,7 @@ package com.kbl.kundgolservice.controller;
 
 import com.kbl.kundgolservice.entity.Person;
 import com.kbl.kundgolservice.exception.ResourceAlreadyExistExcepton;
+import com.kbl.kundgolservice.exception.ResourceNotFoundException;
 import com.kbl.kundgolservice.service.PersonService;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -25,22 +26,23 @@ public class PersonController {
         return new ResponseEntity<>(savedPerson, HttpStatus.OK);
     }
     @GetMapping("/people")
-    public ResponseEntity<List<Person>> fetchAllPerson() throws ResourceAlreadyExistExcepton{
+    public ResponseEntity<List<Person>> fetchAllPerson() throws ResourceNotFoundException {
         List<Person> personList = personService.fetchAllPerson();
         if(personList.size()>0){
             return new ResponseEntity<>(personList,HttpStatus.FOUND);
         }
         return new ResponseEntity<>(null,HttpStatus.NOT_FOUND);
     }
+    //http://localhost:8082/person/123456789012
     @GetMapping("/person/{aadharno}")
-    public ResponseEntity<Person> fetchPersonByAadharno(@PathVariable String aadharno) throws ResourceAlreadyExistExcepton {
+    public ResponseEntity<Person> fetchPersonByAadharno(@PathVariable String aadharno) throws ResourceNotFoundException {
         Person person = personService.fetchPersonByAadharno(aadharno);
         if (null != person)
             return new ResponseEntity<>(person, HttpStatus.FOUND);
         else return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }
     @GetMapping("/person")
-    public ResponseEntity<Optional<Person>> fetchPersonByName(@RequestParam String name) throws ResourceAlreadyExistExcepton{
+    public ResponseEntity<Optional<Person>> fetchPersonByName(@RequestParam String name) throws ResourceNotFoundException{
         Optional<Person> person = personService.fetchPersonByName(name);
         if (person.isPresent())
             return new ResponseEntity<>(person, HttpStatus.FOUND);

@@ -2,6 +2,7 @@ package com.kbl.kundgolservice.service;
 
 import com.kbl.kundgolservice.entity.Person;
 import com.kbl.kundgolservice.exception.ResourceAlreadyExistExcepton;
+import com.kbl.kundgolservice.exception.ResourceNotFoundException;
 import com.kbl.kundgolservice.repository.PersonRepository;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -34,9 +35,13 @@ public class PersonService {
         return repository.save(person);*/
     }
 
-    public Person fetchPersonByAadharno(String aadharno){
-        return repository.findByAadhaarNo(aadharno);
-
+    public Person fetchPersonByAadharno(String aadharno) throws ResourceNotFoundException{
+        Person person = repository.findByAadhaarNo(aadharno);
+        if(null == person){
+            throw new ResourceNotFoundException("ResourceNotFoundException with aadharno :: "+aadharno);
+        }else {
+            return person;
+        }
     }
 
     public Optional<Person> fetchPersonByName(String name){
@@ -49,7 +54,13 @@ public class PersonService {
         }*/
     }
 
-    public List<Person> fetchAllPerson(){
-        return repository.findAll();
+    public List<Person> fetchAllPerson() throws ResourceNotFoundException {
+        List<Person> personList = repository.findAll();
+        if(personList.isEmpty())
+        {
+            throw new ResourceNotFoundException("ResourceNotFoundException");
+        }else {
+            return repository.findAll();
+        }
     }
 }
