@@ -22,6 +22,10 @@ public class PublicServiceService {
     @Autowired
     private ReportRepository reportRepository;
     public PublicService savePublicService(PublicService publicService){
+        if(publicService.getServiceType().isEmpty()){
+
+
+        }
         return repository.save(publicService);
     }
     public PublicService uploadImage(MultipartFile file,Long id) throws IOException {

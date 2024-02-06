@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -19,23 +20,27 @@ import java.util.Optional;
 @RestController
 @AllArgsConstructor
 @NoArgsConstructor
+//@RequestMapping("/pservice")
 public class PublicServiceController {
     @Autowired
     private PublicServiceService service;
 
-    @PostMapping("/service")
+    @PostMapping("/user/service")
+    @PreAuthorize("hasAuthority('ROLE_USER')")
     public ResponseEntity<PublicService> savePublicService(@RequestBody PublicService publicService) {
         PublicService publicService1 = service.savePublicService(publicService);
         return new ResponseEntity<>(publicService1, HttpStatus.OK);
 
     }
     @ResponseStatus(value = HttpStatus.OK)
-    @PostMapping("/uploadfile")
+    @PostMapping("/user/uploadfile")
+    @PreAuthorize("hasAuthority('ROLE_USER')")
     public void savePublicService(@RequestParam("image") MultipartFile file,@RequestParam("id") Long serviceId) throws IOException{
        service.uploadImage(file,serviceId);
     }
 
-    @GetMapping("/service")
+    @GetMapping("/admin/service")
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public ResponseEntity<List<ServiceView>> fetchAllService(){
         List<ServiceView> serviceViewList = service.fetchAllService();
         if (serviceViewList.size()>0){
