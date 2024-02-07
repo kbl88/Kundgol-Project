@@ -20,7 +20,6 @@ import java.util.Optional;
 @RestController
 @AllArgsConstructor
 @NoArgsConstructor
-//@RequestMapping("/pservice")
 public class PublicServiceController {
     @Autowired
     private PublicServiceService service;

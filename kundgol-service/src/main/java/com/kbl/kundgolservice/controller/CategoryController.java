@@ -1,7 +1,6 @@
 package com.kbl.kundgolservice.controller;
 
 import com.kbl.kundgolservice.entity.Category;
-//import com.kbl.kundgolservice.entity.PublicService;
 import com.kbl.kundgolservice.service.UserInfoService;
 import  com.kbl.kundgolservice.service.JwtService;
 import com.kbl.kundgolservice.exception.ResourceAlreadyExistExcepton;
@@ -29,8 +28,7 @@ public class CategoryController {
     @Autowired
     private AuthenticationManager authenticationManager;
 
-    @GetMapping("/admin/categories")
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @GetMapping("/kundgol/categories")
     public ResponseEntity<List<Category>> fetchCategories() throws ResourceNotFoundException {
         List<Category> categoryList = service1.fetchAllCategory();
         return new ResponseEntity<>(categoryList, HttpStatus.OK);

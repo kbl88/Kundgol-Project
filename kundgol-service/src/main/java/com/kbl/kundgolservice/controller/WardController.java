@@ -28,8 +28,7 @@ public class WardController{
         return new ResponseEntity<>(null,HttpStatus.NOT_FOUND);
     }
 
-    @GetMapping("/admin/ward")
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @GetMapping("/kundgol/ward")
     public ResponseEntity<List<Ward>> fetchAllWard(){
         List<Ward> wardList = wardService.fetchAllWard();
         if (wardList.size()>0){

@@ -39,10 +39,10 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(request -> request.requestMatchers("/auth/generateToken")
-                        //.requestMatchers("/auth/welcome", "/auth/addNewUser", "/auth/generateToken")
                         .permitAll())
-                    .authorizeHttpRequests(request -> request.requestMatchers("/user/**").authenticated())
-                    .authorizeHttpRequests(request -> request.requestMatchers("/admin/**").authenticated())
+                .authorizeHttpRequests(request -> request.requestMatchers("/user/**").authenticated())
+                .authorizeHttpRequests(request -> request.requestMatchers("/admin/**").authenticated())
+                .authorizeHttpRequests(request -> request.requestMatchers("/kundgol/**").authenticated())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authenticationProvider())
                 .addFilterBefore(authFilter, UsernamePasswordAuthenticationFilter.class);

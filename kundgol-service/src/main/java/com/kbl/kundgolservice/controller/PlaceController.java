@@ -16,12 +16,10 @@ import java.util.List;
 @RestController
 @AllArgsConstructor
 @NoArgsConstructor
-//@RequestMapping("/kundgol")
 public class PlaceController {
     @Autowired
     private PlaceService service;
-    @GetMapping("/admin/places")
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @GetMapping("/kundgol/places")
     public ResponseEntity<List<Place>> fetchAllPlaces(){
         List<Place> placeList = service.fetchAllPlaces();
         return new ResponseEntity<>(placeList,HttpStatus.OK);

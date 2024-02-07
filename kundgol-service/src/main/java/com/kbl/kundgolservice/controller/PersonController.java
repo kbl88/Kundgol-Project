@@ -17,7 +17,6 @@ import java.util.Optional;
 @RestController
 @AllArgsConstructor
 @NoArgsConstructor
-//@RequestMapping("/kundgol")
 public class PersonController {
     @Autowired
     private PersonService personService;

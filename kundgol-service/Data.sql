@@ -159,9 +159,6 @@ insert  into `ward`(`wardid`,`createdby`,`createddate`,`placecode`,`updatedby`,`
 (12,1,'2023-07-07','PL-01',NULL,NULL,'WD-08','08','08'),
 
 
-
-
-
 /*Table structure for table `ward_ward_set` */
 
 DROP TABLE IF EXISTS `ward_ward_set`;
