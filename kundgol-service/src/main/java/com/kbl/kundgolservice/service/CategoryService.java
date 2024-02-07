@@ -29,8 +29,6 @@ public class CategoryService {
         catch(Exception e){
             throw new ResourceNotFoundException("No Resources are found");
         }
-        /*List<Category> categoryList = repository.findAll();
-        return categoryList;*/
     }
     public Category saveCategory(Category category) throws ResourceAlreadyExistExcepton {
         Category existCategory = repository.findByCategoryCode(category.getCategoryCode());
@@ -40,8 +38,6 @@ public class CategoryService {
             return repository.save(category);
         }else {
             throw new ResourceAlreadyExistExcepton("Place already exist with this PlaceCode :: " + category.getCategoryCode());
-        }/*{
-        Category savedCategory = repository.save(category);
-        return savedCategory;*/
+        }
     }
 }

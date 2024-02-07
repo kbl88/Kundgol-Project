@@ -20,16 +20,14 @@ public class ReportController {
     @Autowired
     private ReportService reportService;
 
-    @GetMapping("/admin/report/person")
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @GetMapping("/kundgol/report/person")
     public ResponseEntity<ResponseDto> fetchReportByPerson(@RequestParam Long personId){
         ResponseDto response = reportService.fetchReportByPerson( personId);
         if (response !=null)
             return  new ResponseEntity<>(response,HttpStatus.FOUND);
         return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }
-    @GetMapping("/admin/report/general")
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @GetMapping("/kundgol/report/general")
     public ResponseEntity<ResponseDto> fetchGeneralReport(@RequestParam String placeCode, @RequestParam String wardCode){
         ResponseDto response = reportService.fetchGeneralReport(placeCode, wardCode);
         if (response !=null)

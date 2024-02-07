@@ -24,22 +24,19 @@ public class PublicServiceController {
     @Autowired
     private PublicServiceService service;
 
-    @PostMapping("/user/service")
-    @PreAuthorize("hasAuthority('ROLE_USER')")
+    @PostMapping("/kundgol/service")
     public ResponseEntity<PublicService> savePublicService(@RequestBody PublicService publicService) {
         PublicService publicService1 = service.savePublicService(publicService);
         return new ResponseEntity<>(publicService1, HttpStatus.OK);
 
     }
     @ResponseStatus(value = HttpStatus.OK)
-    @PostMapping("/user/uploadfile")
-    @PreAuthorize("hasAuthority('ROLE_USER')")
+    @PostMapping("/kundgol/uploadfile")
     public void savePublicService(@RequestParam("image") MultipartFile file,@RequestParam("id") Long serviceId) throws IOException{
        service.uploadImage(file,serviceId);
     }
 
-    @GetMapping("/admin/service")
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @GetMapping("/kundgol/service")
     public ResponseEntity<List<ServiceView>> fetchAllService(){
         List<ServiceView> serviceViewList = service.fetchAllService();
         if (serviceViewList.size()>0){

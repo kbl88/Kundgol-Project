@@ -21,14 +21,12 @@ public class PersonController {
     @Autowired
     private PersonService personService;
 
-    @PostMapping("/user/person")
-    @PreAuthorize("hasAuthority('ROLE_USER')")
+    @PostMapping("/kundgol/person")
     public ResponseEntity<Person> savePerson(@RequestBody Person person) throws ResourceAlreadyExistExcepton {
         Person savedPerson = personService.savePerson(person);
         return new ResponseEntity<>(savedPerson, HttpStatus.OK);
     }
-    @GetMapping("/user/people")
-    @PreAuthorize("hasAuthority('ROLE_USER')")
+    @GetMapping("/kundgol/people")
     public ResponseEntity<List<Person>> fetchAllPerson() throws ResourceNotFoundException {
         List<Person> personList = personService.fetchAllPerson();
         if(personList.size()>0){
@@ -36,16 +34,14 @@ public class PersonController {
         }
         return new ResponseEntity<>(null,HttpStatus.NOT_FOUND);
     }
-    @GetMapping("/user/person/{aadharno}")
-    @PreAuthorize("hasAuthority('ROLE_USER')")
+    @GetMapping("/kundgol/person/{aadharno}")
     public ResponseEntity<Person> fetchPersonByAadharno(@PathVariable String aadharno) throws ResourceNotFoundException{
         Person person = personService.fetchPersonByAadharno(aadharno);
         if (null != person)
             return new ResponseEntity<>(person, HttpStatus.FOUND);
         else return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }
-    @GetMapping("/user/person")
-    @PreAuthorize("hasAuthority('ROLE_USER')")
+    @GetMapping("/kundgol/person")
     public ResponseEntity<Optional<Person>> fetchPersonByName(@RequestParam String name) throws ResourceNotFoundException{
         Optional<Person> person = personService.fetchPersonByName(name);
         if (person.isPresent())
