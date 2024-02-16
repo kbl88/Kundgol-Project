@@ -1,0 +1,383 @@
+{
+	"info": {
+		"_postman_id": "14427b0f-4ca8-4ecc-9105-55801e8fe7a9",
+		"name": "Kundgol-Project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Fetch All Services",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTcwODA2Nzg4MSwiZXhwIjoxNzA4MDY5NjgxfQ.T-glnDiyRXaa5U4ecyFu9frSou81KA4cexBj6_TbzFw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/kundgol/service",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"kundgol",
+						"service"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch All Persons",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTcwODA2Nzg4MSwiZXhwIjoxNzA4MDY5NjgxfQ.T-glnDiyRXaa5U4ecyFu9frSou81KA4cexBj6_TbzFw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/kundgol/people",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"kundgol",
+						"people"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save Person",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTcwODA2Nzg4MSwiZXhwIjoxNzA4MDY5NjgxfQ.T-glnDiyRXaa5U4ecyFu9frSou81KA4cexBj6_TbzFw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"placeCode\": \"PL-01\",\r\n        \"wardCode\": \"WD-03\",\r\n        \"personName\": \"Vishwa Basavaraj Tadasur\",\r\n        \"personNameK\": \"ವಿಶ್ವ ಬಸವರಾಜ ತಡಸೂರ\",\r\n        \"address\": \"ಮಾರ್ಕೆಟ್ ರಸ್ತೆ ಕುಂದಗೋಳ\",\r\n        \"aadhaarNo\": \"1234567812345678\",\r\n        \"contactNo\": \"9538985701\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/kundgol/person",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"kundgol",
+						"person"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch Categories",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTcwODA2Nzg4MSwiZXhwIjoxNzA4MDY5NjgxfQ.T-glnDiyRXaa5U4ecyFu9frSou81KA4cexBj6_TbzFw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/kundgol/categories",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"kundgol",
+						"categories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save Category",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTcwODA2Nzg4MSwiZXhwIjoxNzA4MDY5NjgxfQ.T-glnDiyRXaa5U4ecyFu9frSou81KA4cexBj6_TbzFw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"categoryCode\": \"CAT-08\",\r\n        \"categoryName\": \"Health\",\r\n        \"categoryNameK\": \"ಆರೋಗ್ಯ\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/admin/category",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"admin",
+						"category"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch All Wards",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTcwODA2Nzg4MSwiZXhwIjoxNzA4MDY5NjgxfQ.T-glnDiyRXaa5U4ecyFu9frSou81KA4cexBj6_TbzFw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/kundgol/ward",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"kundgol",
+						"ward"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save Ward",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTcwODA2Nzg4MSwiZXhwIjoxNzA4MDY5NjgxfQ.T-glnDiyRXaa5U4ecyFu9frSou81KA4cexBj6_TbzFw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"wardCode\": \"WD-ALL\",\r\n                \"placeCode\": \"PL-ALL\",\r\n                \"wardName\": \"WD-ALL\",\r\n                \"wardNameK\": \"ಎಲ್ಲಾ\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/admin/ward",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"admin",
+						"ward"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch All Places",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTcwODA2Nzg4MSwiZXhwIjoxNzA4MDY5NjgxfQ.T-glnDiyRXaa5U4ecyFu9frSou81KA4cexBj6_TbzFw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/kundgol/places",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"kundgol",
+						"places"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save Place",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTcwODA2Nzg4MSwiZXhwIjoxNzA4MDY5NjgxfQ.T-glnDiyRXaa5U4ecyFu9frSou81KA4cexBj6_TbzFw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{      \r\n        \"placeCode\": \"PL-ALL\",\r\n        \"placeName\": \"ALL\",\r\n        \"placeNameK\": \"ALL\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/admin/Place",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"admin",
+						"Place"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Generate Token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"admin\",    \r\n    \"password\":\"123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/auth/generateToken",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"auth",
+						"generateToken"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save Service",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTcwODA2Nzg4MSwiZXhwIjoxNzA4MDY5NjgxfQ.T-glnDiyRXaa5U4ecyFu9frSou81KA4cexBj6_TbzFw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"categoryCode\": \"CAT-08\",\r\n        \"serviceType\": \"G\",    \r\n        \"placeCode\": \"PL-ALL\",     \r\n        \"year\": 2012,     \r\n        \"message\": \"ತಾಲೂಕಿನಾದ್ಯಂತ ಅರೋಗ್ಯ ತಪಾಸಣೆ  ಶಿಬಿರ 2023,2024,೨೦೨೫ ರಲ್ಲಿ ಆಗಿರುತ್ತದೆ.\",\r\n        \"wardCode\": \"WD-ALL\"        \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/kundgol/service",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"kundgol",
+						"service"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
